@@ -18,9 +18,12 @@ title: Automation Syndicate
 description: >- # this means to ignore newlines until "baseurl:"
   Blogspot for all things automation with a focus on PowerShell and .NET development.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://automationsynd.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: automationsynd
 github_username:  automationsynd
+
+disqus:
+  shortname: automationsynd
 
 # Build settings
 markdown: kramdown
