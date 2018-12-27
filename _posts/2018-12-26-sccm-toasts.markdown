@@ -101,11 +101,11 @@ You can mock up your own toast notification similar to the one used in my applic
 </toast>
 ```
 
-Once I gained an adequate understanding of UWP toast notifications and their capabilities I started to integrate that with what I knew about the ConfigMgr [Client SDK namespace](https://docs.microsoft.com/en-us/sccm/develop/reference/core/clients/sdk/client-sdk-wmi-classes) within WMI on managed machines. This is the namespace that Software Center already gets most of it's information from that it presents to the user.
+Once I gained an adequate understanding of UWP toast notifications and their capabilities I started to integrate that with what I knew about the SCCM [Client SDK namespace](https://docs.microsoft.com/en-us/sccm/develop/reference/core/clients/sdk/client-sdk-wmi-classes) within WMI on managed machines. This is the namespace that Software Center already gets most of it's information from that it presents to the user.
 
 Of particular interest was the [`CCM_Program`](https://docs.microsoft.com/en-us/sccm/develop/reference/core/clients/sdk/ccm_program-client-wmi-class) class which has information for all task sequences currently applicable to the local machine.
 
-Once I had task sequence data I could then determine if it is an applicable OSD. Unfortunately there is no "I'm an OSD!" flag on the task sequence. You could use text flags or even the category property to track your OSD task sequences in your environment, but after a lot of noodling around I settled on what *appears* to be the basic way Software Center itself decides. That is to simply check that 1) that it is, indeed, a Task Sequence (`TaskSequence == true`), and 2) that the ConfigMgr task sequence user notification is enabled (`NotifyUser == true`). The latter is a default setting for OSD task sequences ([according to this little gem](https://configurationmanager.uservoice.com/users/700390873-ilkka)).
+Once I had task sequence data I could then determine if it is an applicable OSD. Unfortunately there is no "I'm an OSD!" flag on the task sequence. You could use text flags or even the category property to track your OSD task sequences in your environment, but after a lot of noodling around I settled on what *appears* to be the basic way Software Center itself decides. That is to simply check that 1) that it is, indeed, a Task Sequence (`TaskSequence == true`), and 2) that the SCCM task sequence user notification setting is enabled (`NotifyUser == true`). The latter is a default setting for OSD task sequences ([according to this little gem](https://configurationmanager.uservoice.com/users/700390873-ilkka)).
 
 If I'm able to find an OSD task sequence then I evaluate my criteria to determine whether a toast notification should be displayed.
 
