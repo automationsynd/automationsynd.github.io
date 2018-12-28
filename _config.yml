@@ -21,13 +21,17 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://automationsynd.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: automationsynd
 github_username:  automationsynd
+logo: /assets/Logo.png
+search: true
+search_full_content: true
 
 disqus:
   shortname: automationsynd
 
 # Build settings
 markdown: kramdown
-theme: minima
+#theme: minima
+remote_theme: "mmistakes/jekyll-theme-basically-basic"
 plugins:
   - jekyll-feed
 

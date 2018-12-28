@@ -3,9 +3,10 @@ layout: post
 title:  "Extending SCCM Software Center with Windows 10 Toast Notifications"
 date:   2018-12-26 09:42:46 -0500
 categories: sccm
+author:
+    name: Jeremy Brun
+    twitter: jeremytbrun
 ---
-*Written by Jeremy Brun*
-
 # The What, Why, and Where
 
 Microsoft SCCM has built-in functionality for notifying the user when new applications or updates become available or are required within Software Center. Unfortunately those functions limit your ability to guide the user towards taking action or inferring a level of importance based on the type of deployment.
