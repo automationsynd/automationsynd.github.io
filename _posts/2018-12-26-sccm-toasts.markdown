@@ -36,7 +36,7 @@ This was made possible by simply displaying a toast notification reminding the u
 
 ![Example](/assets/example.jpg)
 
-Because this is a *reminder* type notification it will be presented to the user and it will persist on the screen until they take initiate an action against it. Their options are as follows.
+Because this is a *reminder* type notification it will be presented to the user and it will persist on the screen until they initiate an action against it. Their options are as follows.
 
 - Clicking *Dismiss* will dismiss the notification until the next time it is triggered which would be whatever your default trigger cadence is (mine is at login or unlock). This would have the same effect as if the user were to dismiss one or all notifications from within the taskbar Action Center.
 - Clicking *Snooze* after selecting a timeframe will trigger a run-once scheduled task to execute at the time the user selected and *only* as that user.
