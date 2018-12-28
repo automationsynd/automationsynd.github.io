@@ -22,8 +22,6 @@ url: "http://automationsynd.github.io" # the base hostname & protocol for your s
 twitter_username: automationsynd
 github_username:  automationsynd
 logo: /assets/Logo.png
-search: true
-search_full_content: true
 
 disqus:
   shortname: automationsynd
