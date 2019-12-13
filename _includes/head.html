@@ -1,51 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% if page.title and page.title != 'Home' %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    {% assign pagecontent_description = page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | strip_html | strip_newlines | replace: '  ', ' ' | truncate: 160 %}
-    <meta name="description"
-        content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}">
-
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-    <!-- Facebook integration -->
-    <meta property="og:title" content="{{ page.title }}" />
-    {% if page.image %}
-    <meta property="og:image" content="{{ page.image | prepend: site.baseurl | prepend: site.url }}" />{% endif %}
-    <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="{{ site.title }}" />
-    <meta property="og:description"
-        content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}" />
+    {% if site.plugins contains 'jekyll-seo-tag' or site.gems contains 'jekyll-seo-tag' %}
+    {% comment %}
+    Add metadata for search engines and social networks if jekyll-seo-tag plugin is enabled
+    {% endcomment %}
+    {% include head-seo.html %}
+    {% else %}
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description"
+        content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html', '' | absolute_url }}">
+    {% endif %}
 
-    <!-- Twitter integration -->
-    <meta name="twitter:card" content="summary">
-    {% if site.twitter_url %}
-    <meta name="twitter:site" content="{{ site.twitter_url }}">{% endif %}
-    <meta name="twitter:title" content="{{ page.title }}" />
-    {% if page.image %}
-    <meta name="twitter:image" content="{{ site.url }}{{ page.image }}" />{% endif %}
-    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
-    <meta name="twitter:description"
-        content="{% if pagecontent_description.size > 10 %}{{ pagecontent_description }}{% else %}{{ site.description }}{% endif %}" />
+    <script>
+        /* Cut the mustard */
+        if ('querySelector' in document && 'addEventListener' in window) {
+            document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+        }
+    </script>
 
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}"
-        href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
-    <link rel="sitemap" type="application/xml" title="Sitemap"
-        href="{{ "/sitemap.xml" | prepend: site.baseurl | prepend: site.url }}" />
+    <link rel="stylesheet" href="{{ '/assets/stylesheets/main.css' | relative_url }}">
+    {% if site.data.theme.google_fonts %}
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family={% for font in site.data.theme.google_fonts %}{{ font.name | replace: ' ', '+' }}{% if font.weights %}:{% endif %}{{ font.weights | remove: ' ' }}{% if forloop.last != true %}|{% endif %}{% endfor %}">
+    {% endif %}
 
-    <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
-    <link rel="stylesheet" href="{{ "/css/webshop.css" | prepend: site.baseurl }}">
-
+    {% if site.plugins contains 'jekyll-feed' or site.gems contains 'jekyll-feed'%}
+    {% comment %}
+    Add Atom feed link if jekyll-feed plugin is enabled
+    {% endcomment %}
+    {% include head-feed.html %}
+    {% endif %}
 </head>
-
-<body class="{{ page.layout }}" id="top">
-    {% include navigation.html %}
