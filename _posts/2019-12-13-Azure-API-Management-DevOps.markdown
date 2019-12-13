@@ -3,6 +3,9 @@ layout: post
 title:  "Managing Azure API Management with Infrastructure as Code"
 date:   2019-12-13 09:00:00 -0500
 categories: devops
+author:
+    name: Jeremy Brun
+    twitter: jeremytbrun
 ---
 
 # The Problem
