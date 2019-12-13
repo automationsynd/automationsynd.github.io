@@ -5,15 +5,7 @@ date:   2019-12-13 09:00:00 -0500
 categories: devops
 ---
 
-- [Why Bother?](#why-bother)
-    - [Noteworthy community contributions](#noteworthy-community-contributions)
-- [Azure API Management DevOps SDK](#azure-api-management-devops-sdk)
-- [My Approach](#my-approach)
-  - [Get the API spec definitions](#get-the-api-spec-definitions)
-  - [Generate and Deploy ARM templates](#generate-and-deploy-arm-templates)
-  - [Wrapping it all together](#wrapping-it-all-together)
-
-# Why Bother?
+# The Problem
 
 Recently I was tasked with building out a repository and CI/CD process for the Azure API Management (APIM) service and configurations which my organization is using. I thought to myself, "Meh, you've seen one ARM template and you've seen them all!". Well, if you've seen the [APIM template schema](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/allversions) you're probably snickering right now. I quickly found myself underwater and struggling to keep all the moving parts of an APIM configuration via ARM template. Naturally I did some Google-fu stretches and set out to find someone else who has had the same problem and some viable approaches that may already exist.
 
