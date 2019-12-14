@@ -10,7 +10,7 @@ author:
 
 # The Problem
 
-Recently I was tasked with building out a repository and CI/CD process for the Azure API Management (APIM) service and configurations which my organization is using. I thought to myself, "Meh, you've seen one ARM template and you've seen them all!". Well, if you've seen the [APIM template schema](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/allversions) you're probably snickering right now. I quickly found myself underwater and struggling to keep all the moving parts of an APIM configuration via ARM template in check. Naturally I did some Google-fu stretches and set out to find someone else who had the same problem and (hopefully) found some viable approach.
+Recently I was tasked with building out a repository and CI/CD process for the Azure API Management (APIM) service and configurations which my organization is using. I thought to myself, "Meh, you've seen one ARM template and you've seen them all!". Well, if you've seen the [APIM template schema](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/allversions) you're probably snickering right now. I quickly found myself underwater and struggling to keep all the moving parts of an APIM configuration via ARM template in check. So naturally I started with some Google-fu stretches and set out to find someone else who had the same problem and (hopefully) found some viable approach.
 
 Enter the [Azure API Management DevOps SDK](https://github.com/Azure/azure-api-management-devops-resource-kit). Microsoft recognized the need for a streamlined APIM template management process. In fact, folks in the community had even started developing their own solutions to this problem.
 
@@ -29,7 +29,7 @@ This toolkit is a C# tool with two parts - a **Creator** and **Extractor**.
 
 # My Approach
 
-So armed with an idea and a whole lot of tenacity I set out to accomplish my task. I had a high-level idea of the order of operations for using ARM templates to deploy APIM into my dev environment, as follows.
+So armed with a fuzzy idea and a whole lot of tenacity I set out to accomplish my task. Below is the process I came up with as a proof-of-concept. I'll be refining this as time goes on.
 
 ## Get the API spec definitions
 
