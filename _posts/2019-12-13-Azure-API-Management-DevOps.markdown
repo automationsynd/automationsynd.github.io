@@ -43,7 +43,7 @@ OK. Alrighty then. That isn't super great, but thankfully in their response they
 
 We aren't currently using Maven at all so we ruled out that plugin as immediately worthwhile exploring. I tested the CLI plugin which basically just requires you have the Jave Runtime Environment in order to run it. It worked great an all, but I didn't like the idea of maintaining the local JAR package as well as the JRE on our build server - plus, I mean, it's *Java* right? So... anything else? Yes, indeed there is. Right in the *swagger-codegen* readme it talks about a [hosted version of the generator available as a public API](https://github.com/swagger-api/swagger-codegen#online-generators).
 
-This online generator seemed like the perfect fit. The following is PowerShell script and accompanying configuration file I put together to prove the concept.
+This online generator seemed like the perfect fit. The following is a PowerShell script and accompanying configuration file I put together to prove the concept.
 
 ***APIMIntegrationConfig.json***
 ```Json
@@ -121,7 +121,7 @@ $APIMIntegrationConfig | ForEach-Object {
 
 Now that we have an API definition file downloaded we can invoke the APIM DevOps SDK Creator tool to build ARM templates for us! The Creator tool also uses a YAML file to configure APIM specific settings for each API such as products, tags, and many other optional settings. The implementation for that YAML file will vary greatly on the implemenation and organization needs.
 
-I have all of the files above as well as the APIM DevOps SDK source code all in my APIM repo. In my build pipeline I use the .NET Core CLI restore, build, test, and run tasks to run the Creator tool. This tool creates ARM templates which can be published as artifacts and then consumed and deployed by a release pipeline.
+I have the files above as well as the APIM DevOps SDK source code all in my APIM repo. In my build pipeline I use the .NET Core CLI restore, build, test, and run tasks to run the Creator tool. This tool creates ARM templates which can be published as artifacts and then consumed and deployed by a release pipeline.
 
 ## Wrapping it all together
 
