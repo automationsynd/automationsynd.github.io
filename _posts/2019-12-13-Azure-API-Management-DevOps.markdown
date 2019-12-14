@@ -46,7 +46,7 @@ We aren't currently using Maven at all so we ruled out that plugin as immediatel
 This online generator seemed like the perfect fit. The following is a PowerShell script and accompanying configuration file I put together to prove the concept.
 
 ***APIMIntegrationConfig.json***
-```Json
+```json
 [
     {
         "ApiVersion": "v3", // API Version from SwaggerHub
@@ -56,7 +56,7 @@ This online generator seemed like the perfect fit. The following is a PowerShell
 ```
 
 ***Get-SwaggerHubApiDefinition.ps1***
-```PowerShell
+```powershell
 $SwaggerGeneratorUri = "https://generator3.swagger.io/api/generate"
 $SwaggerHubApiBaseUri = "https://api.swaggerhub.com/apis/OWNER"
 $SwaggerHubApiKey = "KEY-GUID-HERE"
