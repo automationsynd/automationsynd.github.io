@@ -10,9 +10,9 @@ author:
 
 # The Problem
 
-Recently I was tasked with building out a repository and CI/CD process for the Azure API Management (APIM) service and configurations which my organization is using. I thought to myself, "Meh, you've seen one ARM template and you've seen them all!". Well, if you've seen the [APIM template schema](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/allversions) you're probably snickering right now. I quickly found myself underwater and struggling to keep all the moving parts of an APIM configuration via ARM template. Naturally I did some Google-fu stretches and set out to find someone else who has had the same problem and some viable approaches that may already exist.
+Recently I was tasked with building out a repository and CI/CD process for the Azure API Management (APIM) service and configurations which my organization is using. I thought to myself, "Meh, you've seen one ARM template and you've seen them all!". Well, if you've seen the [APIM template schema](https://docs.microsoft.com/en-us/azure/templates/microsoft.apimanagement/allversions) you're probably snickering right now. I quickly found myself underwater and struggling to keep all the moving parts of an APIM configuration via ARM template in check. Naturally I did some Google-fu stretches and set out to find someone else who had the same problem and (hopefully) found some viable approach.
 
-Enter the [Azure API Management DevOps SDK](https://github.com/Azure/azure-api-management-devops-resource-kit). The folks over at Microsoft recognized the need for a streamlined template management process and that folks in the community had even started developing their own solutions.
+Enter the [Azure API Management DevOps SDK](https://github.com/Azure/azure-api-management-devops-resource-kit). Microsoft recognized the need for a streamlined APIM template management process. In fact, folks in the community had even started developing their own solutions to this problem.
 
 ### Noteworthy community contributions
 
